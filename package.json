@@ -11,6 +11,9 @@
     "win": {
       "target": "portable",
       "icon": "logo.png"
+    },
+    "darwin": {
+      "icon": "logo.png"
     }
   },
   "keywords": [],
