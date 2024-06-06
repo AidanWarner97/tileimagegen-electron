@@ -19,9 +19,7 @@
     "linux": {
       "target": ["AppImage", "deb", "rpm"],
       "icon": "logo.png",
-      "maintainer": {
-        "name": "AidanWarner97 <aidan@awarner.co.uk>"
-      }
+      "maintainer": "AidanWarner97 <aidan@awarner.co.uk>"
     }
   },
   "keywords": [],
