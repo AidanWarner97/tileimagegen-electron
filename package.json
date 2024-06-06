@@ -1,6 +1,6 @@
 {
   "name": "tileimagegenerator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
@@ -8,8 +8,16 @@
   },
   "build": {
     "appId": "git.aidanwarner97.tileimagegen",
+    "publish": {
+      "provider": "github",
+      "owner": "AidanWarner97",
+      "repo": "tileimagegen-electron"
+    },
     "win": {
-      "target": ["msi", "portable"],
+      "target": [
+        "msi",
+        "portable"
+      ],
       "icon": "logo.png"
     },
     "mac": {
@@ -17,7 +25,11 @@
       "icon": "logo.png"
     },
     "linux": {
-      "target": ["AppImage", "deb", "rpm"],
+      "target": [
+        "AppImage",
+        "deb",
+        "rpm"
+      ],
       "icon": "logo.png",
       "maintainer": "AidanWarner97 <aidan@awarner.co.uk>"
     }
@@ -29,5 +41,8 @@
   "devDependencies": {
     "electron": "^30.1.0",
     "electron-builder": "^25.0.0-alpha.9"
+  },
+  "dependencies": {
+    "electron-updater": "^6.3.0-alpha.4"
   }
 }

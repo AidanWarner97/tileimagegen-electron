@@ -1,5 +1,6 @@
 const { create } = require('domain');
-const { app, BrowserWindow, session, ipcMain, shell } = require('electron');
+const { app, BrowserWindow, session, ipcMain, shell} = require('electron');
+const { autoUpdater } = require('electron-updater');
 const path = require('path');
 
 let mainWindow;
@@ -51,7 +52,9 @@ function createWindow() {
     });
 }
 
-app.on('ready', createWindow);
+app.on('ready', createWindow, () => {
+    autoUpdater.checkForUpdatesAndNotify();
+});
 
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
@@ -64,3 +67,10 @@ app.on('activate', () => {
         createWindow();
     }
 });
+
+autoUpdater.setFeedURL({
+    provider: 'github',
+    owner: 'AidanWarner97',
+    repo: 'tileimagegen-electron'
+});
+
