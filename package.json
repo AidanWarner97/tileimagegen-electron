@@ -20,7 +20,7 @@
       "target": ["AppImage", "deb", "rpm"],
       "icon": "logo.png",
       "maintainer": {
-        "name": null
+        "name": "AidanWarner97 <aidan@awarner.co.uk>"
       }
     }
   },
