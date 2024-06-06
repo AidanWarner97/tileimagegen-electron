@@ -12,7 +12,7 @@
       "target": "portable",
       "icon": "logo.png"
     },
-    "darwin": {
+    "mac": {
       "icon": "logo.png"
     }
   },
