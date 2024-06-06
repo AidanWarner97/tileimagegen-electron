@@ -1,0 +1,24 @@
+{
+  "name": "tileimagegenerator",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "build": {
+    "appId": "git.aidanwarner97.tileimagegen",
+    "win": {
+      "target": "portable",
+      "icon": "logo.png"
+    }
+  },
+  "keywords": [],
+  "author": "AidanWarner97",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "electron": "^30.1.0",
+    "electron-builder": "^25.0.0-alpha.9"
+  }
+}
