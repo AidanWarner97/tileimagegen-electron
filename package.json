@@ -8,21 +8,32 @@
   },
   "build": {
     "appId": "git.aidanwarner97.tileimagegen",
+    "productName": "Tile Image Generator",
     "publish": {
       "provider": "github",
       "owner": "AidanWarner97",
-      "repo": "tileimagegen-electron"
+      "repo": "tileimagegen-electron",
+      "private": false
     },
     "win": {
       "target": [
-        "msi",
+        "nsis",
         "portable"
       ],
       "icon": "logo.png"
     },
+    "nsis": {
+      "oneClick": false,
+      "shortcutName": "Tile Image Generator",
+      "include": "build/installer.nsh"
+    },
+    "portable": {
+      "artifactName": "${productName} Portable ${version}.${ext}"
+    },
     "mac": {
       "target": "dmg",
-      "icon": "logo.png"
+      "icon": "logo.png",
+      "category": "public.app-category.utilities"
     },
     "linux": {
       "target": [
@@ -31,7 +42,12 @@
         "rpm"
       ],
       "icon": "logo.png",
-      "maintainer": "AidanWarner97 <aidan@awarner.co.uk>"
+      "maintainer": "AidanWarner97 <aidan@awarner.co.uk>",
+      "category": "Utility",
+      "desktop": {
+        "Name": "Tile Image Generator",
+        "Comment": "Generate tile images"
+      }
     }
   },
   "keywords": [],
