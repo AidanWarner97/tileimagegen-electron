@@ -1,6 +1,6 @@
 {
   "name": "tileimagegenerator",
-  "version": "1.0.2",
+  "version": "1.0.1",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
@@ -8,7 +8,9 @@
   },
   "build": {
     "appId": "git.aidanwarner97.tileimagegen",
-    "publish": "always",
+    "publish": {
+      "provider": "always"
+    },
     "win": {
       "target": ["msi", "portable"],
       "icon": "logo.png"
