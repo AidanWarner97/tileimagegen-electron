@@ -8,9 +8,6 @@
   },
   "build": {
     "appId": "git.aidanwarner97.tileimagegen",
-    "publish": {
-      "provider": "always"
-    },
     "win": {
       "target": ["msi", "portable"],
       "icon": "logo.png"
