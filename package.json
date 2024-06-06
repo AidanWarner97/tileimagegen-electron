@@ -18,13 +18,17 @@
     },
     "linux": {
       "target": ["AppImage", "deb", "rpm"],
-      "icon": "logo.png"
+      "icon": "logo.png",
+      "maintainer": {
+        "name": "AidanWarner97",
+        "email": "aidan@awarner.co.uk"
+      }
     }
   },
   "keywords": [],
   "author": "AidanWarner97",
   "license": "ISC",
-  "description": "",
+  "description": "Generate tile patterns for use in designs with custom grout lines/colours and multiple layouts",
   "devDependencies": {
     "electron": "^30.1.0",
     "electron-builder": "^25.0.0-alpha.9"
