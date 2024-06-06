@@ -9,10 +9,15 @@
   "build": {
     "appId": "git.aidanwarner97.tileimagegen",
     "win": {
-      "target": "portable",
+      "target": ["msi", "portable"],
       "icon": "logo.png"
     },
     "mac": {
+      "target": "dmg",
+      "icon": "logo.png"
+    },
+    "linux": {
+      "target": ["AppImage", "deb", "rpm"],
       "icon": "logo.png"
     }
   },
