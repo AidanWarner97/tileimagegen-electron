@@ -31,9 +31,14 @@
       "artifactName": "${productName} Portable ${version}.${ext}"
     },
     "mac": {
-      "target": ["dmg", "zip", "universal"],
+      "target": [
+        "dmg", 
+        "zip", 
+        "universal"
+      ],
       "icon": "logo.png",
-      "category": "public.app-category.utilities"
+      "category": "public.app-category.utilities",
+      "type": "distribution"
     },
     "linux": {
       "target": [
