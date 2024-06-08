@@ -6,6 +6,12 @@ const path = require('path');
 let mainWindow;
 let downloadItem;
 
+autoUpdater.logger = require('electron-log');
+autoUpdater.logger.transports.file.level = 'info';
+
+autoUpdater.autoInstallOnAppQuit = false;
+autoUpdater.updateMode = 'none';
+
 function createWindow() {
     mainWindow = new BrowserWindow({
         width: 800,
@@ -52,7 +58,29 @@ function createWindow() {
     });
 }
 
-app.on('ready', createWindow, () => {
+autoUpdater.on('error', (error) => {
+    console.error('Update error:', error);
+  });
+
+autoUpdater.on('checking-for-update', () => {
+    console.log('Checking for update...');
+  });
+  
+  autoUpdater.on('update-available', (info) => {
+    console.log('Update available:', info.version);
+  });
+  
+  autoUpdater.on('update-not-available', () => {
+    console.log('Update not available.');
+  });
+  
+  autoUpdater.on('update-downloaded', (info) => {
+    console.log('Update downloaded:', info.version);
+  });
+  
+
+app.on('ready', () => {
+    createWindow();
     autoUpdater.checkForUpdatesAndNotify();
 });
 
