@@ -1,6 +1,6 @@
 {
   "name": "tileimagegenerator",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
@@ -31,7 +31,8 @@
       "artifactName": "${productName} Portable ${version}.${ext}"
     },
     "mac": {
-      "target": "dmg",
+      "target": ["dmg", "zip"],
+      "arch": ["arm64", "x64"],
       "icon": "logo.png",
       "category": "public.app-category.utilities"
     },
@@ -59,6 +60,7 @@
     "electron-builder": "^25.0.0-alpha.9"
   },
   "dependencies": {
+    "electron-log": "^5.1.5",
     "electron-updater": "^6.3.0-alpha.4"
   }
 }
