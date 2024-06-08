@@ -32,9 +32,12 @@
     },
     "mac": {
       "target": [
-        "dmg", 
-        "zip", 
-        "universal"
+        {
+          "target": "mas",
+          "arch": [
+            "universal"
+          ]
+        }
       ],
       "icon": "logo.png",
       "category": "public.app-category.utilities",
