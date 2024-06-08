@@ -44,6 +44,9 @@
       "category": "public.app-category.utilities",
       "type": "distribution"
     },
+    "dmg": {
+      "artifactName": "${productName} ${version} ${arch}.${ext}"
+    },
     "linux": {
       "target": [
         "AppImage",
