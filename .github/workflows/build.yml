@@ -19,6 +19,27 @@ jobs:
         with:
           node-version: 22
 
+      - name: Install Miniconda (Ubuntu & macOS)
+        if: matrix.os == 'ubuntu-latest' || matrix.os == 'macos-latest'
+        run: |
+          wget https://repo.anaconda.com/miniconda/Miniconda3-latest-linux-x86_64.sh -O miniconda.sh
+          bash miniconda.sh -b -p $HOME/miniconda
+          source $HOME/miniconda/etc/profile.d/conda.sh
+          conda init bash
+          conda create -p ./python_env python=3.11
+          conda activate ./python_env
+          conda install -y flask pillow
+
+      - name: Install Miniconda (Windows)
+        if: matrix.os == 'windows-latest'
+        run: |
+          curl -lO https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe
+          Start-Process -Wait -FilePath .\Miniconda3-latest-Windows-x86_64.exe -ArgumentList '/S', '/D=C:\Miniconda3'
+          & C:\Miniconda3\Scripts\conda.exe init powershell
+          & C:\Miniconda3\Scripts\conda.exe create -p ./python_env python=3.11
+          & C:\Miniconda3\Scripts\conda.exe activate ./python_env
+          & C:\Miniconda3\Scripts\conda.exe install -y flask pillow
+
       - name: Build/release Electron app
         uses: samuelmeuli/action-electron-builder@v1
         with:
