@@ -19,8 +19,8 @@ jobs:
         with:
           node-version: 22
 
-      - name: Install Miniconda (Ubuntu & macOS)
-        if: matrix.os == 'ubuntu-latest' || matrix.os == 'macos-latest'
+      - name: Install Miniconda (Ubuntu)
+        if: matrix.os == 'ubuntu-latest'
         run: |
           wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
           bash miniconda.sh -b -p $HOME/miniconda
@@ -29,6 +29,17 @@ jobs:
           conda create -p ./python_env python=3.11
           conda activate ./python_env
           conda install -y flask pillow
+
+          - name: Install Miniconda (Ubuntu & macOS)
+          if: matrix.os == 'macos-latest'
+          run: |
+            wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh -O miniconda.sh
+            bash miniconda.sh -b -p $HOME/miniconda
+            source $HOME/miniconda/etc/profile.d/conda.sh
+            conda init bash
+            conda create -p ./python_env python=3.11
+            conda activate ./python_env
+            conda install -y flask pillow
 
       - name: Install Miniconda (Windows)
         if: matrix.os == 'windows-latest'
