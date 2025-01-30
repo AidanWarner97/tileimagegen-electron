@@ -29,7 +29,7 @@ function createWindow() {
         autoHideMenuBar: true
     });
 
-    mainWindow.loadURL('http://localhost:5000');
+    mainWindow.loadURL('https://tileimagegen.uk');
 
     mainWindow.webContents.on('did-finish-load', () => {
         if (!hasReloaded) {
@@ -142,41 +142,14 @@ autoUpdater.on('update-downloaded', (info) => {
 });
 
 app.on('ready', () => {
-    const basePath = path.resolve(process.resourcesPath, '..');
-    const pythonExecutable = path.join(basePath, 'python_env', 'python.exe');
-    const flaskAppPath = path.join(basePath, 'python_app', 'wsgi.py');
-    flaskProcess = spawn(pythonExecutable, [flaskAppPath]);
-
-    flaskProcess.stdout.on('data', (data) => {
-        console.log(`stdout: ${data}`);
-    });
-
-    flaskProcess.stderr.on('data', (data) => {
-        console.error(`stderr: ${data}`);
-    });
-
-    flaskProcess.on('close', (code) => {
-        console.log(`Flask process exited with code ${code}`);
-    });
-    
     createWindow();
     autoUpdater.checkForUpdatesAndNotify();
 });
 
 app.on('window-all-closed', () => {
     console.log('All windows closed. Stopping Flask process.');
-    if (flaskProcess) {
-        flaskProcess.kill();
-    }
     if (process.platform !== 'darwin') {
         app.quit();
-    }
-});
-
-app.on('before-quit', () => {
-    console.log('App quitting. Stopping Flask process.');
-    if (flaskProcess) {
-        flaskProcess.kill();
     }
 });
 
